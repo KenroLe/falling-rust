@@ -1,5 +1,6 @@
 pub mod physics;
 pub mod game;
+pub mod render;
 #[derive(Clone,Copy)]
 pub struct Point {
     pub color:u32,

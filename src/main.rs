@@ -29,12 +29,7 @@ fn main() {
     while window.is_open() && !window.is_key_down(Key::Escape) {
         engine::physics::tick(&mut world);
         engine::game::tick(&mut world, &window);
-        
-        for x in 0..world.len() {
-            for y in 0..world[x].len() {
-                render_buffer[x+y*WIDTH] =  world[x][y].color;
-            }
-        }
+        engine::render::tick(&mut world, &mut render_buffer);
         // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
         window
             .update_with_buffer(&render_buffer, WIDTH, HEIGHT)
