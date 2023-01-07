@@ -16,9 +16,9 @@ pub fn gravity(world: &mut Vec<Vec<Point>>) {
     for x in 0..world.len() {
         for y in 0..world[x].len()
         {
-            if world[x][y].occupied == true && y < HEIGHT-1 {
+            if world[x][y].physics_properties.has_gravity == true && y < HEIGHT-1 {
                 // gravity :(
-                if y < HEIGHT && world[x][y+1].occupied == false {
+                if y < HEIGHT && world[x][y+1].physics_properties.collider == false {
                     moves.push(
                         Move{
                             from:Vector2{x:x,y:y},
@@ -27,7 +27,7 @@ pub fn gravity(world: &mut Vec<Vec<Point>>) {
                     );
                 }
                 if x > 0 { // out of bounds check because vector panics otherwise
-                    if y < HEIGHT && world[x-1][y+1].occupied == false {
+                    if y < HEIGHT && world[x-1][y+1].physics_properties.collider == false {
                         moves.push(
                             Move{
                                 from:Vector2{x:x,y:y},
@@ -37,7 +37,7 @@ pub fn gravity(world: &mut Vec<Vec<Point>>) {
                     }
                 }
                 if x < WIDTH-1 { // oob check
-                    if y < HEIGHT && world[x+1][y+1].occupied == false {
+                    if y < HEIGHT && world[x+1][y+1].physics_properties.collider == false {
                         moves.push(
                             Move{
                                 from:Vector2{x:x,y:y},

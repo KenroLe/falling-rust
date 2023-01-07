@@ -3,10 +3,10 @@ extern crate minifb;
 use minifb::{Key, Window, WindowOptions};
 
 mod engine;
-pub const WIDTH: usize = 32;
-pub const HEIGHT: usize = 16;
-pub const WINDOW_WIDTH:usize = WIDTH*10;
-pub const WINDOW_HEIGHT:usize = HEIGHT*10;
+pub const WIDTH: usize = 320;
+pub const HEIGHT: usize = 160;
+pub const WINDOW_WIDTH:usize = WIDTH*4;
+pub const WINDOW_HEIGHT:usize = HEIGHT*4;
 pub const WRATIO :usize= WINDOW_WIDTH/WIDTH;
 pub const HRATIO :usize= WINDOW_HEIGHT/HEIGHT;
 use log::{info};
